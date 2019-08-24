@@ -3,7 +3,7 @@
 }
 
 h2{
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 body{
@@ -30,12 +30,15 @@ body{
 
 .topnav {
   overflow: hidden;
-  #background-color: #333;
-    
+  #background-color: #111;
+}
 
+.topnav img{
+  float: left;
 }
 
 .topnav a {
+  
   float: left;
   color: #f2f2f2;
   text-align: center;
@@ -45,6 +48,8 @@ body{
   font-size: 17px;
   border-radius: 10px;
   margin-right: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .topnav a:hover {
