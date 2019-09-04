@@ -1,0 +1,16 @@
+{
+"companyName": "AstraSchool",
+"productName": "PhysicsPlayground",
+"productVersion": "0.1",
+"dataUrl": "WebMinimal.data.unityweb",
+"wasmCodeUrl": "WebMinimal.wasm.code.unityweb",
+"wasmFrameworkUrl": "WebMinimal.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#262626",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.2.0f1"
+}
