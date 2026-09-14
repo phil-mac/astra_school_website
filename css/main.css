@@ -170,6 +170,8 @@ p {
   border-radius: 0;
   border: 1px solid var(--line);
   margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .topnav a::before {
