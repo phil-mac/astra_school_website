@@ -1,91 +1,288 @@
-*{
-  font-family: Helvetica;
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap");
+
+:root {
+  --bg: #0b100d;
+  --bg-panel: #121a15;
+  --bg-bar: #1a241c;
+  --text: #e7f1e8;
+  --muted: #9db5a3;
+  --acid: #c6ff3d;
+  --acid-dim: #8fbf2a;
+  --cyan: #5ef2d2;
+  --line: #2c4333;
+  --ink: #0b100d;
+  --focus: #c6ff3d;
 }
 
-h2{
-  margin-top: 30px;
+* {
+  box-sizing: border-box;
 }
 
-body{
-  #background-color: #fdf9ff;
+html {
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "IBM Plex Mono", ui-monospace, "Cascadia Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(198, 255, 61, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(198, 255, 61, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.12) 0px,
+    rgba(0, 0, 0, 0.12) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 5;
+}
+
+::selection {
+  background: var(--acid);
+  color: var(--ink);
+}
+
+a {
+  color: var(--cyan);
+}
+
+a:hover {
+  color: var(--acid);
+}
+
+h2 {
+  margin-top: 8px;
+  margin-bottom: 18px;
+  font-size: 1.28rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--acid);
+  letter-spacing: -0.02em;
+}
+
+h2::before {
+  content: "> ";
+  color: var(--cyan);
+  font-weight: 500;
+}
+
+p {
+  max-width: 62ch;
+  color: var(--text);
 }
 
 .center {
-  margin: auto;
-  width: 60%;
-  padding: 10px;
-  #background: #fdf9ff;
+  position: relative;
+  margin: 32px auto 48px;
+  width: min(960px, calc(100% - 32px));
+  padding: 0 24px 28px;
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  box-shadow:
+    7px 7px 0 rgba(198, 255, 61, 0.16),
+    0 0 0 1px rgba(198, 255, 61, 0.12);
 }
-#about{
+
+.center::before {
+  content: "guest@astra:~  session/live";
+  display: block;
+  margin: 0 -24px 22px;
+  padding: 9px 16px;
+  background: var(--bg-bar);
+  border-bottom: 1px solid var(--line);
+  color: var(--acid);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+}
+
+#about {
   display: flex;
 }
 
-#aboutText{
-  #flex: 0 0 65%;
+#aboutText {
+  flex: 1;
 }
-      
-.essay{
+
+.essay {
   margin-top: 80px;
 }
 
 .topnav {
-  overflow: hidden;
-  #background-color: #111;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  overflow: visible;
+  margin-bottom: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed var(--line);
 }
 
-.topnav img{
-  float: left;
+.logo {
+  margin-right: auto;
+  padding: 6px 10px 4px;
+  background: #f3ffe6;
+  border: 2px dashed var(--acid-dim);
+  box-shadow: 3px 3px 0 var(--acid);
+  transform: rotate(-1.1deg);
+}
+
+.topnav img,
+.logo img {
+  display: block;
+  float: none;
+  width: min(240px, 70vw) !important;
+  height: auto;
 }
 
 .topnav a {
-  
-  float: left;
-  color: #f2f2f2;
+  float: none;
+  color: var(--text);
   text-align: center;
-  background-color: #333;
-  padding: 14px 16px;
+  background-color: transparent;
+  padding: 8px 14px;
   text-decoration: none;
-  font-size: 17px;
-  border-radius: 10px;
-  margin-right: 10px;
-  margin-top: 20px;
-  margin-left: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  border-radius: 0;
+  border: 1px solid var(--line);
+  margin: 0;
+}
+
+.topnav a::before {
+  content: "./";
+  color: var(--muted);
+  margin-right: 2px;
 }
 
 .topnav a:hover {
-  background-color: #ddc5e6;
-  color: black;
+  background-color: #1e2c22;
+  color: var(--acid);
+  border-color: var(--acid);
 }
 
 .topnav a.active {
-  background-color: #77458a;
-  color: white;
+  background-color: var(--acid);
+  color: var(--ink);
+  border-color: var(--acid);
 }
 
-.enrollButton{
-  overflow: hidden;
-  #background-color: #333;
-  margin-top: 30px;
-  margin-bottom: 20px;
+.topnav a.active::before {
+  color: var(--ink);
+}
+
+.topnav a:focus-visible,
+.enrollButton a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.enrollButton {
+  overflow: visible;
+  margin-top: 22px;
+  margin-bottom: 12px;
 }
 
 .enrollButton a {
-  float: left;
-  color: #333;
+  display: inline-block;
+  float: none;
+  color: var(--ink);
   text-align: center;
-  padding: 14px 16px;
+  padding: 12px 18px;
   text-decoration: none;
-  font-size: 17px;
-  background-color: #47CF73;
-  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: var(--acid);
+  border-radius: 0;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--cyan);
+  transform: rotate(-0.6deg);
 }
 
 .enrollButton a:hover {
-  background-color: #a7d2b5;
-  color: black;
+  background-color: var(--cyan);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 var(--acid);
 }
 
 .enrollButton a.active {
-  background-color: #77458a;
-  color: white;
+  background-color: var(--acid);
+  color: var(--ink);
+}
+
+iframe {
+  display: block;
+  max-width: 100%;
+  margin-top: 8px;
+  background: #050705;
+  border: 1px solid var(--line) !important;
+  box-shadow: inset 0 0 0 1px rgba(198, 255, 61, 0.08);
+}
+
+@media (max-width: 1040px) {
+  iframe {
+    width: 100% !important;
+    height: 58vw !important;
+    min-height: 240px;
+    max-height: 520px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+
+  .center {
+    margin: 12px auto 28px;
+    width: calc(100% - 16px);
+    padding: 0 14px 20px;
+  }
+
+  .center::before {
+    margin: 0 -14px 16px;
+    font-size: 11px;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  .topnav {
+    align-items: flex-start;
+  }
+
+  .logo {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .enrollButton a {
+    transform: none;
+  }
 }
